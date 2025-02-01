@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { NavBar } from '@/components/NavBar';
 import { ThemeProvider } from '@/components/theme-provider';
+import { PostHogProvider } from "@/providers/PostHogProvider";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -29,8 +30,10 @@ export default function RootLayout({
       <html lang="en" className="scroll-p-20 scroll-smooth">
         <head />
         <body>
+          <PostHogProvider>
             <NavBar />
             {children}
+          </PostHogProvider>
         </body>
       </html>
     </>
